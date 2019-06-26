@@ -1,0 +1,15 @@
+#parent{
+	height: 100px;
+}
+
+.child{
+	display: none;
+	margin-left: 20px;
+}
+
+/*#child1{
+	display: none;
+}*/
+#parent{
+	overflow-y:auto;
+}
