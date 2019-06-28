@@ -15,43 +15,42 @@ class MyClass {
             alert('enter a number please')
             this.inputObject.value = ''
         } else {
-            let a
             this.startObject.style.display = 'none'
             this.paraObject.style.display = 'block'
             this.pauseObject.style.display = 'block'
             this.div1Object.style.display = 'none'
-            MyClass.time = this.inputObject.value
-            this.pause = false
 
+            MyClass.time = this.inputObject.value
+
+            this.pause = false
             this.paraObject.textContent = MyClass.time
 
-            setTimeout(() => {}, 1000)
-            MyClass.time -= 1
-            this.pauseObject.addEventListener('click', () => {
-                this.pause = true
-                this.pauseObject.style.display = 'none'
-                this.resumeObject.style.display = 'block'
-                clearInterval(a)
-            })
-
-            this.resumeObject.addEventListener('click', () => {
-                this.pause = false
-                this.pauseObject.style.display = 'block'
-                this.resumeObject.style.display = 'none'
-
-                a = setInterval(() => {
-                    this.paraObject.textContent = MyClass.time
-                    setTimeout(() => {}, 1000)
-                    MyClass.time -= 1
-                }, 1000)
-            })
-            if (this.pause === false) {
-                a = setInterval(() => {
-                    this.paraObject.textContent = MyClass.time
-                    setTimeout(() => {}, 1000)
-                    MyClass.time -= 1
-                }, 1000)
-            }
+            const a = setInterval(() => {
+                if (this.pause === false) {
+                    this.pauseObject.addEventListener('click', () => {
+                        this.pause = true
+                        this.pauseObject.style.display = 'none'
+                        this.resumeObject.style.display = 'block'
+                    })
+                    this.resumeObject.addEventListener('click', () => {
+                        this.pause = false
+                        this.pauseObject.style.display = 'block'
+                        this.resumeObject.style.display = 'none'
+                    })
+                    if (MyClass.time > 0) {
+                        MyClass.time -= 1
+                        this.paraObject.textContent = MyClass.time
+                    } else {
+                        alert('times up')
+                        this.div1Object.style.display = 'block'
+                        this.inputObject.value = ''
+                        this.pauseObject.style.display = 'none'
+                        this.startObject.style.display = 'block'
+                        this.paraObject.style.display = 'none'
+                        clearInterval(a)
+                    }
+                }
+            }, 1000)
         }
     }
 }
