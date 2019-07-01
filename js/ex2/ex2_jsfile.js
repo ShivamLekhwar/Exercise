@@ -1,14 +1,18 @@
 /* eslint-disable no-alert */
-
+// TODO[Gaurav] No need to use static methods here. Use all the methods and variables as object level.
 class MyCheckBox {
-    constructor() {
-        this.checks = document.getElementsByClassName('meri')
+    constructor(checks, noneCheck, maxSelection) {
+        this.checks = checks
+        this.maxSelection = maxSelection
 
         for (let i = 0; i < this.checks.length; i += 1) {
             // eslint-disable-next-line func-names
-
-            this.checks[i].addEventListener('click', this.mainFunction)
+            // TODO[gaurav] Mainfunction name change
+            this.checks[i].addEventListener('click', this.mainFunction.bind(this))
         }
+
+        this.noneCheck = noneCheck
+        this.noneCheck.addEventListener('click', this.handleNoneCheckClick.bind(this))
     }
 
     static increaseCount() {
@@ -44,7 +48,7 @@ class MyCheckBox {
 
     static printMsg() {
         alert(
-            `Only 3 days can be selected. You have already selected ${this.array[0].name},${this.array[1].name} and ${this.array[2].name}`
+            `Only 3 days can be selected.`
         )
     }
 
@@ -53,38 +57,40 @@ class MyCheckBox {
         return false
     }
 
-    static pushArray(checkedIndex) {
+    static pushElementToArray(checkedIndex) {
         this.array.push(checkedIndex)
     }
 
+    handleNoneCheckClick() {
+        if (this.checked !== false) {
+            for (let i = 0; i < this.checks.length; i += 1) {
+                // eslint-disable-next-line func-names
+                this.checks[i].checked = false;
+                MyCheckBox.initializeCount();
+            }
+        }
+    }
+
     mainFunction() {
-        if (this.id === 'none') {
-            // console.log('zingalala')
-            MyCheckBox.uncheckAll()
-            MyCheckBox.initializeCount()
-            MyCheckBox.initializeArray()
-            MyCheckBox.nonecheck = this
-        } else if (this.checked === false) {
-            if (MyCheckBox.array.indexOf(this) !== -1) {
-                MyCheckBox.cutArray(this)
-                MyCheckBox.decreaseCount()
+        if (event.target.checked === false) {
+            MyCheckBox.decreaseCount()
+        } else {
+            this.noneCheck.checked = false;
+            if(MyCheckBox.getCount() == this.maxSelection) {
+                event.target.checked = false
+                MyCheckBox.printMsg()
+            } else {
+                MyCheckBox.increaseCount()
             }
-        } else if (MyCheckBox.getCount() >= 3) {
-            this.checked = false
-            MyCheckBox.printMsg()
-        } else if (MyCheckBox.checkInclude(this)) {
-            if (MyCheckBox.nonecheck.checked === true) {
-                MyCheckBox.nonecheck.checked = false
-            }
-            MyCheckBox.increaseCount()
-            MyCheckBox.pushArray(this)
         }
     }
 }
-
+// TODO[gaurav]: change name to what the count shows.
 MyCheckBox.count = 0
+// TODO[gaurav]: change name to what the array stores.
 MyCheckBox.array = []
 MyCheckBox.nonecheck = false
 
-const MyCheckBoxObject = new MyCheckBox()
+const MyCheckBoxObject = new MyCheckBox(document.getElementsByClassName('meri'), document.getElementById('none'), 3)
+const MyCheckBoxObject2 = new MyCheckBox(document.getElementsByClassName('meri2'), document.getElementById('none2'), 2)
 // const checks = document.getElementsByClassName('meri')

@@ -5,6 +5,7 @@ class User {
         this.age = age
     }
 
+    // TODO[Gaurav] Typo in comapare, Dont use 'parameter' in parameter's name. Use something like otheruser 
     comapareAge(userParameter) {
         if (this.age > userParameter.age) {
             console.log(`${this.name}is older than ${userParameter.name}`)

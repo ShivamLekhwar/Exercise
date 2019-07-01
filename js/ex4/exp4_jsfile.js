@@ -1,5 +1,10 @@
 class MyClass {
     constructor() {
+        // TODO[gaurav] naming issues
+        // buttonObject => formSubmitButton
+        // firstInputObject => numberInputField
+        // secondInputObject => redultOutputField
+        // mainFunction => FormSubmissionHandler
         this.buttonObject = document.getElementById('button1')
         this.firstInputObject = document.getElementById('inputField1')
         this.secondInputObject = document.getElementById('inputField2')
@@ -10,13 +15,13 @@ class MyClass {
     }
 
     mainFunction(event) {
-        event.preventDefault()
+        event.preventDefault();
         if (this.firstInputObject.value === '') {
             alert('please enter a value')
-        } else if (!isNaN(this.firstInputObject.value)) {
-            this.secondInputObject.value = true
-        } else {
+        } else if (isNaN(this.firstInputObject.value)) {
             this.secondInputObject.value = false
+        } else {
+            this.secondInputObject.value = true
         }
     }
 }
