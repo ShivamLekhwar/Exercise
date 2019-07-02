@@ -1,29 +1,22 @@
-class MyClass {
-    constructor() {
-        // TODO[gaurav] naming issues
-        // buttonObject => formSubmitButton
-        // firstInputObject => numberInputField
-        // secondInputObject => redultOutputField
-        // mainFunction => FormSubmissionHandler
-        this.buttonObject = document.getElementById('button1')
-        this.firstInputObject = document.getElementById('inputField1')
-        this.secondInputObject = document.getElementById('inputField2')
-        this.buttonObject.addEventListener(
-            'click',
-            this.mainFunction.bind(this)
-        )
-    }
+class MyForm {
+  constructor() {
+    this.formSubmitButton = document.getElementById('button1')
+    this.numberInputField = document.getElementById('inputField1')
+    this.resultOutputField = document.getElementById('inputField2')
+    this.formSubmitButton.addEventListener('click', this.formSubmissionHandler.bind(this))
+  }
 
-    mainFunction(event) {
-        event.preventDefault();
-        if (this.firstInputObject.value === '') {
-            alert('please enter a value')
-        } else if (isNaN(this.firstInputObject.value)) {
-            this.secondInputObject.value = false
-        } else {
-            this.secondInputObject.value = true
-        }
+  formSubmissionHandler(event) {
+    if (this.numberInputField.value === '') {
+      alert('please enter a something')
+    } else if (isNaN(this.numberInputField.value)) {
+      this.resultOutputField.value = false
+      event.preventDefault();
+    } else {
+      this.resultOutputField.value = true
+      alert('your form is submitted')
     }
+  }
 }
 
-const classObject = new MyClass()
+const classObject1 = new MyForm()

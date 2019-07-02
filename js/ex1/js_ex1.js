@@ -1,24 +1,23 @@
 /* eslint-disable no-console */
 class User {
-    constructor(name, age) {
-        this.name = name
-        this.age = age
-    }
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
 
-    // TODO[Gaurav] Typo in comapare, Dont use 'parameter' in parameter's name. Use something like otheruser 
-    comapareAge(userParameter) {
-        if (this.age > userParameter.age) {
-            console.log(`${this.name}is older than ${userParameter.name}`)
-        } else if (this.age < userParameter.age) {
-            console.log(`${userParameter.name}is older than ${this.name}`)
-        } else {
-            console.log('they have same age')
-        }
+  compareAge(otherUser) {
+    if (this.age > otherUser.age) {
+      console.log(`${this.name}is older than ${otherUser.name}`)
+    } else if (this.age < otherUser.age) {
+      console.log(`${otherUser.name}is older than ${this.name}`)
+    } else {
+      console.log('they have same age')
     }
+  }
 }
 
 const user1 = new User('Shivam', 21)
 
 const user2 = new User('Raj', 41)
 
-user1.comapareAge(user2)
+user1.compareAge(user2)

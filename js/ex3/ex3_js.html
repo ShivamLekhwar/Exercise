@@ -10,133 +10,42 @@
 		<label><input type="checkbox" name="color" class="checkboxes" value="child1">Color</label><br>
 
 		<div id="child1" class="child">
-			<label><input type="checkbox" name="Red" class='colors'>Red</label><br>
-			<label><input type="checkbox" name="Yellow" class='colors'>Yellow</label><br>
-			<label><input type="checkbox" name="Green" class='colors'>Green</label><br>
-			<label><input type="checkbox" name="Blue" class='colors'>Blue</label>
+			<label><input type="checkbox" name="Red" class='child1'>Red</label><br>
+			<label><input type="checkbox" name="Yellow" class='child1'>Yellow</label><br>
+			<label><input type="checkbox" name="Green" class='child1'>Green</label><br>
+			<label><input type="checkbox" name="Blue" class='child1'>Blue</label>
 		</div>
 
 		<label><input type="checkbox" name="drinks" class="checkboxes" value="child2">Drinks</label><br>
 
 			<div id="child2" class="child">
-				<label><input type="checkbox" name="Coke" class="drinking">Coke </label><br>
-				<label><input type="checkbox" name="Limca" class="drinking">Limca</label><br>
-				<label><input type="checkbox" name="Dew" class="drinking">Dew</label><br>
-				<label><input type="checkbox" name="Fanta" class="drinking">Fanta</label>
+				<label><input type="checkbox" name="Coke" class="child2">Coke </label><br>
+				<label><input type="checkbox" name="Limca" class="child2">Limca</label><br>
+				<label><input type="checkbox" name="Dew" class="child2">Dew</label><br>
+				<label><input type="checkbox" name="Fanta" class="child2">Fanta</label>
 			</div>
 
 		<label><input type="checkbox" name="movies" class="checkboxes" value="child3">Movies</label><br>
 
 		<div id="child3" class="child">
-			<label><input type="checkbox" name="AA" class="film">AA</label><br>
-			<label><input type="checkbox" name="BB" class="film">BB</label><br>
-			<label><input type="checkbox" name="CC" class="film">CC</label><br>
-			<label><input type="checkbox" name="DD" class="film">DD</label>
+			<label><input type="checkbox" name="AA" class="child3">AA</label><br>
+			<label><input type="checkbox" name="BB" class="child3">BB</label><br>
+			<label><input type="checkbox" name="CC" class="child3">CC</label><br>
+			<label><input type="checkbox" name="DD" class="child3">DD</label>
 		</div>
 
 		<label><input type="checkbox" name="Bikes" class="checkboxes" value="child4">Bikes</label>
 
 		<div id="child4" class="child">
-			<label><input type="checkbox" name="Hero" class="biking">Hero</label><br>
-			<label><input type="checkbox" name="Bajaj" class="biking">Bajaj</label><br>
-			<label><input type="checkbox" name="BMW" class="biking">BMW</label><br>
-			<label><input type="checkbox" name="Honda" class="biking">Honda</label>
+			<label><input type="checkbox" name="Hero" class="child4">Hero</label><br>
+			<label><input type="checkbox" name="Bajaj" class="child4">Bajaj</label><br>
+			<label><input type="checkbox" name="BMW" class="child4">BMW</label><br>
+			<label><input type="checkbox" name="Honda" class="child4">Honda</label>
 		</div>
 
 	</div>
 
 
-	<script type="text/javascript">
-
-		var xyz=function(){
-			let children=document.getElementsByClassName('child');
-			
-			for(let i=0;i<children.length;i++)
-			{
-				if(this.checked==false && this.value==children[i].id)
-				{
-					children[i].style.display='none';
-					 
-					if(children[i].id=='child1')
-					{
-						let c1=document.getElementsByClassName("colors");
-						for(let k=0;k<c1.length;k++)
-						{
-							c1[k].checked=false;
-						}
-
-					}
-
-					if(children[i].id=='child2')
-					{
-						let d1=document.getElementsByClassName("drinking");
-						for(let k=0;k<d1.length;k++)
-						{
-							d1[k].checked=false;
-						}
-
-					}
-
-					if(children[i].id=='child3')
-					{
-						let f1=document.getElementsByClassName("film");
-						for(let k=0;k<f1.length;k++)
-						{
-							f1[k].checked=false;
-						}
-
-					}
-
-					if(children[i].id=='child4')
-					{
-						let b1=document.getElementsByClassName("biking");
-						for(let k=0;k<b1.length;k++)
-						{
-							b1[k].checked=false;
-						}
-
-					}
-
-				 }
-
-				else if(this.value==children[i].id)
-				{
-					children[i].style.display='block';
-					var pp=document.getElementById('parent');
-
-					if(children[i].id=="child1")
-					{
-						pp.scrollBy(0,5);
-					}
-
-					else if(children[i].id=="child2")
-					{
-						pp.scrollBy(0,25);
-					}
-
-					else if(children[i].id=="child3")
-					{
-						pp.scrollBy(0,45);
-					}
-
-					else if(children[i].id=="child4")
-					{
-						pp.scrollBy(0,65);
-					}
-					
-				}
-
-			}
-		
-		}
-
-		var cb=document.getElementsByClassName('checkboxes');
-	
-		for(let i=0;i<cb.length;i++)
-		{
-			cb[i].addEventListener("click",xyz);
-		}
-
-	</script>
+	<script type="text/javascript" src="js_exp3.js.js"> </script>
 </body>
 </html> 
