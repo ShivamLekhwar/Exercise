@@ -1,0 +1,9 @@
+#pauseButton,#resumeButton{
+	display: none;
+}
+p{
+	background-color: lightblue;
+	width: 20px;
+	padding:20px;
+	display: none;
+}
