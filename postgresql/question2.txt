@@ -1,0 +1,32 @@
+2. Find the Highest sale price for each year.
+
+select extract(year from transfer_date),max(price)
+from land_registry_price_paid_uk  
+group by extract(year from transfer_date) order by extract(year from transfer_date);
+
+
+ date_part |    max    
+-----------+-----------
+      1995 |    650000
+      1996 |    325000
+      1997 |    375000
+      1998 |    400000
+      1999 |    408000
+      2000 |    495000
+      2001 |    675000
+      2002 |   1750000
+      2003 |    481500
+      2004 |   1372500
+      2005 |    680000
+      2006 |    735000
+      2007 |    950000
+      2008 |    900000
+      2009 |   2937987
+      2010 |   1650000
+      2011 |    895001
+      2012 |   1050000
+      2013 |   5881800
+      2014 |  15400000
+      2015 |  11500000
+
+Time: 57.528 ms
