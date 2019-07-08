@@ -1,0 +1,14 @@
+1: Find the Postcode with highest average sale price.
+
+select postcode           
+from land_registry_price_paid_uk  
+group by postcode
+order by avg(price) desc
+limit 1;
+
+
+-[ RECORD 1 ]----
+postcode | W8 5JN
+ 
+Time: 312.367 ms
+

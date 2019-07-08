@@ -1,0 +1,42 @@
+6  Find Total sale amount per month per pincode by year.
+
+
+ select count(transaction),
+extract(month from transfer_date),
+postcode,
+extract(year from transfer_date)
+from land_registry_price_paid_uk
+group by extract(month from transfer_date),
+postcode,
+extract(year from transfer_date) 
+order by
+extract(year from transfer_date);
+
+
+count | date_part | postcode | date_part 
+-------+-----------+----------+-----------
+     1 |         1 | CB4 1YU  |      1995
+     1 |         1 | EX34 7BX |      1995
+     1 |         1 | GL9 1BP  |      1995
+     1 |         1 | SM6 9DN  |      1995
+     1 |         1 | TA10 0BH |      1995
+     1 |         2 | CB4 1YU  |      1995
+     1 |         3 | DT9 6JG  |      1995
+     1 |         3 | FY8 1PS  |      1995
+     1 |         3 | KT10 0JJ |      1995
+     1 |         3 | NW6 4NS  |      1995
+     1 |         3 | SE19 2BA |      1995
+     2 |         3 | SN10 2TE |      1995
+     1 |         4 | BS8 2BH  |      1995
+     1 |         4 | CB4 1YU  |      1995
+     1 |         4 | OX12 9XP |      1995
+     1 |         5 | SN10 2TE |      1995
+     1 |         6 | CB11 3UG |      1995
+     1 |         6 | CB4 1YU  |      1995
+     1 |         6 | DL8 4AY  |      1995
+     1 |         6 | KT22 9RD |      1995
+     1 |         6 | SE15 5PA |      1995
+--continue-- 
+
+Time: 349.188 ms
+

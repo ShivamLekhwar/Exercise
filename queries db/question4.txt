@@ -1,0 +1,33 @@
+4: Find number of sales per pincode per year
+
+select count(transaction),postcode,extract(year from transfer_date)
+from land_registry_price_paid_uk
+group by postcode,extract(year from transfer_date)
+order by extract(year from transfer_date);
+
+ count | postcode | date_part 
+-------+----------+-----------
+     1 | BS8 2BH  |      1995
+     2 | CB11 3UG |      1995
+     1 | CB4 1YT  |      1995
+     5 | CB4 1YU  |      1995
+     1 | CH2 4EA  |      1995
+     1 | DL8 4AY  |      1995
+     1 | DT9 6JG  |      1995
+     1 | EX34 7BX |      1995
+     1 | FY8 1PS  |      1995
+     1 | GL9 1BP  |      1995
+     1 | HP21 7PG |      1995
+     1 | KT10 0JJ |      1995
+     1 | KT22 9RD |      1995
+     1 | L4 2RB   |      1995
+     1 | ME17 2AT |      1995
+     1 | N6 4HP   |      1995
+     1 | NE2 2PS  |      1995
+     1 | NE26 1BE |      1995
+     1 | NE26 1SE |      1995
+     1 | NP26 4QU |      1995
+     1 | NW6 4NS  |      1995
+---continue---
+
+Time: 322.886 ms
